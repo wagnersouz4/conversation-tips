@@ -1,0 +1,19 @@
+{
+  "name": "conversation-tips",
+  "version": "0.0.1",
+  "description": "A module to the SOS Tool",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wagnersouz4/conversation-tips.git"
+  },
+  "author": "Wagner Souza",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/wagnersouz4/conversation-tips/issues"
+  },
+  "homepage": "https://github.com/wagnersouz4/conversation-tips#readme",
+  "devDependencies": {
+    "bower": "~1.8.0", 
+    "gulp": "~3.9.1"
+  }
+}

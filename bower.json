@@ -1,0 +1,21 @@
+{
+  "name": "conversation-tips",
+  "description": "A module to the SOS Tool",
+  "authors": [
+    "Wagner Souza"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/wagnersouz4/conversation-tips",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.6.4",
+    "bootstrap": "~3.3.7"
+  }
+}
