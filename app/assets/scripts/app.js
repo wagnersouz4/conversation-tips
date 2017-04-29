@@ -1,1 +1,5 @@
-angular.module('conversationTips',[])
+(function(){
+    'use strict';
+
+    angular.module('conversationTips',[]);
+})();
