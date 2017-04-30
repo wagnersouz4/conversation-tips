@@ -1,0 +1,17 @@
+//- Refactor to use a dynamic number of circles. At the moment it's assumed that every situation has only 2 moments
+div#moment.animation-entrance(ng-switch-when="moment")
+    div
+        div
+            //- Current Situation
+            div.circle.circle-situation
+                div.circle-content {{ ::vm.currentSituation.description.toUpperCase()}}
+        div
+            //- Moment A
+            a(ng-click="vm.loadCardsOf(vm.currentSituation.moments[0])")
+                div.circle.circle-moment.moment-a
+                    div.circle-content {{ ::vm.currentSituation.moments[0].description.toUpperCase()}}
+        div
+            //- Moment B
+            a(ng-click="vm.loadCardsOf(vm.currentSituation.moments[1])")
+                div.circle.circle-moment.moment-b
+                    div.circle-content {{ ::vm.currentSituation.moments[1].description.toUpperCase()}}

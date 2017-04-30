@@ -1,0 +1,26 @@
+div#situation.animation-entrance(ng-switch-when="situation")
+    div.title
+        p.title Let's rock with these conversation tips!
+
+    //- Refactor to create the content dynamically
+    div
+        div
+            a(ng-click="vm.loadMomentsOf(vm.conversation.situations[0])")
+                div.circle.dating
+                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[0])}")
+                        span {{ ::vm.conversation.situations[0].description.toUpperCase()}}
+        div
+            a(ng-click="vm.loadMomentsOf(vm.conversation.situations[1])")
+                div.circle.hanging-out
+                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[1])}")
+                        span {{ ::vm.conversation.situations[1].description.toUpperCase()}}
+        div
+            a(ng-click="vm.loadMomentsOf(vm.conversation.situations[2])")
+                div.circle.networking
+                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[2])}")
+                        span {{ ::vm.conversation.situations[2].description.toUpperCase()}}
+        div
+            a(ng-click="vm.loadMomentsOf(vm.conversation.situations[3])")
+                div.circle.work
+                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[3])}")
+                        span {{ ::vm.conversation.situations[3].description.toUpperCase()}}

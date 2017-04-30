@@ -16,6 +16,8 @@
   ],
   "devDependencies": {
     "angular": "~1.6.4",
+    "angular-animate": "~1.6.4",
+    "animate.css": "~3.1.0",
     "bootstrap": "~3.3.7"
   }
 }

@@ -1,0 +1,13 @@
+div#card(ng-switch-when="card")
+    //- Refactor to use a load classes dinamically.
+    div.circle.circle-card(ng-class="{'card-green': vm.currentCardIndexIs(0),'card-pink': vm.currentCardIndexIs(1),'card-blue': vm.currentCardIndexIs(2)}")
+        div.circle-content 
+            span {{ vm.currentTip()}}
+        div.circle-footer
+            span {{ vm.currentTipLikes()}} like(s)
+    //- 
+        Depending on the business rules the like button should be locked unce the tip has been liked.
+        At the moment, there is no blocking.
+    a(ng-click="vm.likeTip()")
+        div.circle.circle-like(ng-class="{'circle-pulse': vm.tipHasBeenLiked}")
+            div.circle-content

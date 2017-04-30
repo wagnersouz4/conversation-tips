@@ -10,6 +10,13 @@ html(lang="en")
         //- endinject
 
     body(ng-app="conversationTips")
-        div.container(ng-controller="ConversationCtrl as vm")
+        div.container(ng-controller="ConversationCtrl as vm", ng-init="vm.init()")
+            div.row
+                div.col-xs-12(ng-switch on="vm.currentScreen")
+                    block screens
+                        include conversation/situation
+                        include conversation/moment
+                        include conversation/card
+
     //- inject:js
     //- endinject

@@ -1,5 +1,5 @@
 (function(){
     'use strict';
 
-    angular.module('conversationTips',[]);
+    angular.module('conversationTips',['ngAnimate']);
 })();

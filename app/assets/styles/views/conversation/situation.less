@@ -1,0 +1,66 @@
+@import '../../helpers/animation';
+
+#situation {
+    /* Animation */
+    @x: 55%; 
+    @y: 55%;
+    @keyframes rotation-dating {
+        .rotation(@x, @y);
+    }
+
+    @keyframes rotation-hanging-out {
+        .rotation(@x, -@y);
+    }
+
+    @keyframes rotation-networking {
+        .rotation(-@x, @y);
+    }
+
+    @keyframes rotation-work {
+        .rotation(-@x, -@y);
+    }
+
+    @media (max-width: 640px) {
+        @x: 55%; 
+        @y: 55%;
+
+        @keyframes rotation-dating {
+            .rotation(@x, @y);
+        }
+
+        @keyframes rotation-hanging-out {
+            .rotation(@x, -@y);
+        }
+
+        @keyframes rotation-networking {
+             .rotation(-@x, @y);
+        }
+
+        @keyframes rotation-work {
+             .rotation(-@x, -@y);
+        }
+    }
+
+    @animation-rotation-time: 45s;
+    @default-animation: @animation-rotation-time infinite linear;
+
+    @dating-animation: rotation-dating @default-animation;
+    @hanging-out-animation: rotation-hanging-out @default-animation;
+    @networking-animation: rotation-networking @default-animation;
+    @work-animation: rotation-work @default-animation;
+
+
+    .dating {
+        .animation(@dating-animation)
+    }
+    .hanging-out {
+        .animation(@hanging-out-animation)
+    }
+    .networking{
+        .animation(@networking-animation)
+    }
+    .work {
+        .animation(@work-animation)
+    }
+    /* End Animation */
+}

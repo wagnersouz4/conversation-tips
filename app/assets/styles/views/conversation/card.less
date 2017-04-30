@@ -1,0 +1,66 @@
+@import '../../variables';
+
+#card {
+    
+    .circle-card {
+        width: 200px;
+        height: 200px;
+        border: 5px solid white;
+        color: white;
+        margin-top: -100px;
+        margin-left: -100px;
+        padding: 5px;
+    }
+
+    .circle-like {
+        width: 60px;
+        height: 60px;
+        border-width: 0px;
+        top: 90%;
+        margin-top: -50px;
+        margin-left: -30px;
+        background-color: @bright-orange;
+        margin-bottom: 50px;
+        background-image: url('/resources/images/conversation/card/thumbs-up-white.png');
+        background-position: center;
+        background-size: 40px auto;
+        background-repeat: no-repeat;
+    }
+
+    .circle-footer {
+        width: 65%;
+        position: absolute;
+        left: 17.5%;
+        bottom: 10%;
+        font-weight: normal;
+        font-size: 0.8em;
+    }
+    
+    .circle-arrow {
+        width: 20px;
+        position: absolute;
+        color: black;
+        font-weight: bold;
+        top: 50%;
+
+        &.next {
+            left: 102.5%;
+        }
+        &.previous {
+            left: -14%;
+        }
+    }
+
+    // Temporary classes, refactory to use random colors automatically.
+    .card-green {
+        background-color: @bright-green;
+    }
+
+    .card-pink {
+        background-color: @bright-pink
+    }
+
+    .card-blue {
+        background-color: @bright-blue;
+    }
+}

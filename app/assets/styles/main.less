@@ -1,0 +1,71 @@
+@import 'variables';
+@import 'helpers/animation';
+
+.circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    border: 3px solid @dark-yellow;
+    background-color: white;
+    text-align: center;
+    display: table;   
+    position: fixed;
+    top: 50%;
+    margin-top: -55px;
+    margin-left: -55px;
+    left: 50%;
+}
+
+@media (max-width: 640px) and (orientation:landscape){
+    .circle{
+        top: 55%;
+        margin-top: 0px;
+    }
+}
+
+.circle-content {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+}
+
+@circle-pulse-animation: pulse 2s 1;
+
+.circle-pulse {
+    .animation(@circle-pulse-animation); 
+    box-shadow: 0 0 0 rgba(253, 192, 47, 0.8);
+    border-radius: 50%;
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0.8);
+    box-shadow: 0 0 0 0 rgba(253, 192, 47, 0.8);
+    -webkit-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0.8);
+
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(253, 192, 47, 0);
+    -webkit-box-shadow: 0 0 0 10px rgba(253, 192, 47, 0);
+    box-shadow: 0 0 0 10px rgba(253, 192, 47, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0);
+    box-shadow: 0 0 0 0 rgba(253, 192, 47, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0);
+  }
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+

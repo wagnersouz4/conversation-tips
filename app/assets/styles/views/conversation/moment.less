@@ -1,0 +1,46 @@
+@import '../../variables';
+@import '../../helpers/animation';
+
+#moment {
+    .circle-situation {
+        width: 130px;
+        height: 130px;
+        margin-top: -65px;
+        margin-left: -65px;
+        border: 10px solid white;
+        background-color: @dark-yellow;  
+    }
+
+    .circle-moment {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+
+    /* Animation */
+    @x: 68%; 
+    @y: 68%;
+
+    @keyframes moment-a {
+        .rotation(@x, @y);
+    }
+
+    @keyframes moment-b {
+        .rotation(-@x, -@y);
+    }
+
+    @animation-rotation-time: 45s;
+    @default-animation: @animation-rotation-time infinite linear;
+
+    @moment-a-animation: moment-a @default-animation;
+    @moment-b-animation: moment-b @default-animation;
+
+    .moment-a {
+        .animation(@moment-a-animation)
+    }
+    .moment-b {
+        .animation(@moment-b-animation)
+    }
+    /* End Animation */
+}
