@@ -1,4 +1,4 @@
-div#card(ng-switch-when="card")
+div#card.animated-div(ng-switch-when="card")
     a(ng-click="vm.backToScreen('moment')")
         div.toolbar
             span <
@@ -10,7 +10,7 @@ div#card(ng-switch-when="card")
             span {{ vm.currentTipLikes()}} like(s)
     //- 
         Depending on the business rules the like button should be locked unce the tip has been liked.
-        At the moment, there is no blocking.
+        At the moment, there is no locking.
     a(ng-click="vm.likeTip()")
-        div.circle.circle-like(ng-class="{'circle-pulse': vm.tipHasBeenLiked}")
+        div.circle.circle-like(ng-class="{'circle-bounce': vm.tipHasBeenLiked}")
             div.circle-content

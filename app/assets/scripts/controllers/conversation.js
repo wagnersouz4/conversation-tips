@@ -9,7 +9,7 @@
         var vm = this;
 
         function loadConversation() {
-            // update to use promises when consuming from an API
+            // update to use promise when consuming from an API
             vm.conversation = networking.loadConversation();
         }
         
@@ -48,7 +48,7 @@
 
         /* 
             Refactor the likeTip function, as it should post the updated number of 
-            likes to the SOS API in order to persist the data.
+            likes to the SOS Tool API in order to persist the data.
         */
         vm.likeTip = function() {
             ensureCurrentMomentExists();
@@ -62,21 +62,21 @@
         vm.runMomentCardsAnimation = function() {
             /* 
                 It's assuemd that every moment has 3 tips. 
-                Therefore, the animation will rely on a index ranging from 0 to 2.
+                Therefore, the animation will rely on an index ranging from 0 to 2.
             */
             if (vm.continueCardAnimation === true) {
                 vm.momentCardsAnimationTimeout = $timeout(function(){
                     vm.currentCardIndex = (vm.currentCardIndex === 2) ? 0 : vm.currentCardIndex + 1;
                     vm.runMomentCardsAnimation();
-                }, 3000);
+                }, 5000);
             }
         };
 
         vm.loadMomentsOf = function(situation) {
             vm.currentSituation = situation;
-            vm.currentScreenTimeout = $timeout(function() {
+            //vm.currentScreenTimeout = $timeout(function() {
                 vm.currentScreen = 'moment';
-            }, 1000);
+            //}, 1000);
         };
 
         vm.loadCardsOf = function(moment) {
@@ -106,7 +106,7 @@
 
             switch (screenName) {
                 case 'situation':
-                    $timeout.cancel(vm.currentScreenTimeout);
+                    //$timeout.cancel(vm.currentScreenTimeout);
                     vm.currentScreen = screenName;
                     vm.currentSituation = null;
                     break;

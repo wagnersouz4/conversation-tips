@@ -1,7 +1,7 @@
 @import '../../variables';
+@import '../../helpers/animation';
 
 #card {
-    
     .circle-card {
         width: 200px;
         height: 200px;
@@ -30,11 +30,13 @@
 
 @media (max-width: 640px) and (orientation:landscape){
     .circle-card {
-        top: 55%;
+        top: 10%;
         margin-top: 0px;
     }
-    .circle-footer {
 
+    .circle-like {
+        top: 105%;
+        margin-top: -60px;
     }
 }
 
@@ -47,31 +49,27 @@
         font-size: 0.8em;
     }
     
-    .circle-arrow {
-        width: 20px;
-        position: absolute;
-        color: black;
-        font-weight: bold;
-        top: 50%;
-
-        &.next {
-            left: 102.5%;
-        }
-        &.previous {
-            left: -14%;
-        }
-    }
-
-    // Temporary classes, refactory to use random colors automatically.
+    // Temporary classes, need a refactor to use random colors automatically.
+    @default-card-entrance-animation: pulse 2s;
     .card-green {
         background-color: @bright-green;
     }
 
     .card-pink {
-        background-color: @bright-pink
+        background-color: @bright-pink;
     }
 
     .card-blue {
         background-color: @bright-blue;
+    }
+
+    .card-green-add {
+        .animation(@default-card-entrance-animation)
+    }
+    .card-pink-add {
+        .animation(@default-card-entrance-animation)
+    }
+    .card-blue-add {
+        .animation(@default-card-entrance-animation)
     }
 }

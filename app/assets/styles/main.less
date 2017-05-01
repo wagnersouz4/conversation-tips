@@ -18,7 +18,6 @@
 
 @media (max-width: 640px) and (orientation:landscape){
     .circle{
-        top: 55%;
         margin-top: 0px;
     }
 }
@@ -31,30 +30,10 @@
     font-weight: bold;
 }
 
-@circle-pulse-animation: pulse 2s 1;
+@circle-bounce-animation: bounce 1s;
 
-.circle-pulse {
-    .animation(@circle-pulse-animation); 
-    box-shadow: 0 0 0 rgba(253, 192, 47, 0.8);
-    border-radius: 50%;
-}
-
-@keyframes pulse {
-  0% {
-    -moz-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0.8);
-    box-shadow: 0 0 0 0 rgba(253, 192, 47, 0.8);
-    -webkit-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0.8);
-  }
-  70% {
-    -moz-box-shadow: 0 0 0 10px rgba(253, 192, 47, 0);
-    -webkit-box-shadow: 0 0 0 10px rgba(253, 192, 47, 0);
-    box-shadow: 0 0 0 10px rgba(253, 192, 47, 0);
-  }
-  100% {
-    -moz-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0);
-    box-shadow: 0 0 0 0 rgba(253, 192, 47, 0);
-    -webkit-box-shadow: 0 0 0 0 rgba(253, 192, 47, 0);
-  }
+.circle-bounce {
+    .animation(@circle-bounce-animation); 
 }
 
 a, a:visited, a:hover, a:active {
@@ -74,4 +53,10 @@ a, a:visited, a:hover, a:active {
     top: 5px;
     font-weight: bold;
     padding-bottom: 10px;
+}
+
+@default-card-entrance-animation: fadeIn 2s;
+
+ .animated-div.ng-enter {
+     .animation(@default-card-entrance-animation);
 }

@@ -1,4 +1,4 @@
-div#situation.animation-entrance(ng-switch-when="situation")
+div#situation.animated-div(ng-switch-when="situation")
     a(ng-click="vm.closeApp()")
         div.toolbar
             span X
@@ -10,20 +10,20 @@ div#situation.animation-entrance(ng-switch-when="situation")
         div
             a(ng-click="vm.loadMomentsOf(vm.conversation.situations[0])")
                 div.circle.dating
-                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[0])}")
+                    div.circle-content
                         span {{ ::vm.conversation.situations[0].description.toUpperCase()}}
         div
             a(ng-click="vm.loadMomentsOf(vm.conversation.situations[1])")
                 div.circle.hanging-out
-                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[1])}")
+                    div.circle-content
                         span {{ ::vm.conversation.situations[1].description.toUpperCase()}}
         div
             a(ng-click="vm.loadMomentsOf(vm.conversation.situations[2])")
                 div.circle.networking
-                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[2])}")
+                    div.circle-content
                         span {{ ::vm.conversation.situations[2].description.toUpperCase()}}
         div
             a(ng-click="vm.loadMomentsOf(vm.conversation.situations[3])")
                 div.circle.work
-                    div.circle-content(ng-class="{'circle-pulse': vm.selectedSituationIs(vm.conversation.situations[3])}")
+                    div.circle-content
                         span {{ ::vm.conversation.situations[3].description.toUpperCase()}}
