@@ -12,9 +12,6 @@
     "url": "https://github.com/wagnersouz4/conversation-tips/issues"
   },
   "homepage": "https://github.com/wagnersouz4/conversation-tips#readme",
-  "dependecies": {
-    "express": "~4.15.2"
-  },
   "engines": {
     "node": "6.10.2",
     "npm": "4.0.5"
@@ -33,6 +30,7 @@
     "gulp-less": "~3.3.0",
     "gulp-cssmin": "~0.1.7",
     "gulp-rename": "~1.2.2",
-    "gulp-webserver": "~0.9.1"
+    "gulp-webserver": "~0.9.1",
+    "express": "~4.15.2"
   }
 }
