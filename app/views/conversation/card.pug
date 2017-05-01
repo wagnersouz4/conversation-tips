@@ -1,4 +1,7 @@
 div#card(ng-switch-when="card")
+    a(ng-click="vm.backToScreen('moment')")
+        div.toolbar
+            span <
     //- Refactor to use a load classes dinamically.
     div.circle.circle-card(ng-class="{'card-green': vm.currentCardIndexIs(0),'card-pink': vm.currentCardIndexIs(1),'card-blue': vm.currentCardIndexIs(2)}")
         div.circle-content 

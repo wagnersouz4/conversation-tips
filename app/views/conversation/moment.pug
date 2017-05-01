@@ -1,5 +1,8 @@
 //- Refactor to use a dynamic number of circles. At the moment it's assumed that every situation has only 2 moments
 div#moment.animation-entrance(ng-switch-when="moment")
+    a(ng-click="vm.backToScreen('situation')")
+        div.toolbar
+            span <
     div
         div
             //- Current Situation

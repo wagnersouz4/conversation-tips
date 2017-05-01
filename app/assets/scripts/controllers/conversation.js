@@ -13,6 +13,13 @@
             vm.conversation = networking.loadConversation();
         }
         
+        function ensureCurrentMomentExists() {
+            if (vm.currentMoment === null) {
+                console.log('There is no current moment');
+                return;
+            }
+        }
+
        vm.init = function init() {
             loadConversation();
             vm.currentScreen = 'situation';
@@ -25,18 +32,13 @@
             return false;
         };
 
-        vm.loadMomentsOf = function(situation) {
-            vm.currentSituation = situation;
-            $timeout(function() {
-                vm.currentScreen = 'moment';
-            }, 1000);
-        };
-
         vm.currentTip = function() {
+            ensureCurrentMomentExists();
             return vm.currentMoment.cards[vm.currentCardIndex].tip;
         };
 
         vm.currentTipLikes = function() {
+            ensureCurrentMomentExists();
             return vm.currentMoment.cards[vm.currentCardIndex].numberOfLikes;
         };
 
@@ -49,9 +51,10 @@
             likes to the SOS API in order to persist the data.
         */
         vm.likeTip = function() {
+            ensureCurrentMomentExists();
             vm.currentMoment.cards[vm.currentCardIndex].numberOfLikes += 1;
             vm.tipHasBeenLiked = true;
-            $timeout(function(){
+            vm.tipHasBeenLikedTimeout = $timeout(function(){
                 vm.tipHasBeenLiked = false;
             }, 2000);
         };
@@ -62,11 +65,18 @@
                 Therefore, the animation will rely on a index ranging from 0 to 2.
             */
             if (vm.continueCardAnimation === true) {
-                $timeout(function(){
+                vm.momentCardsAnimationTimeout = $timeout(function(){
                     vm.currentCardIndex = (vm.currentCardIndex === 2) ? 0 : vm.currentCardIndex + 1;
                     vm.runMomentCardsAnimation();
                 }, 3000);
             }
+        };
+
+        vm.loadMomentsOf = function(situation) {
+            vm.currentSituation = situation;
+            vm.currentScreenTimeout = $timeout(function() {
+                vm.currentScreen = 'moment';
+            }, 1000);
         };
 
         vm.loadCardsOf = function(moment) {
@@ -75,6 +85,42 @@
             vm.currentMoment = moment;
             vm.currentScreen = 'card';
             vm.runMomentCardsAnimation();
+        };
+
+        /*
+            Closing the app will depend on how it's how it has been built.
+            For security reasons a attempt to window.close will be block by the browser.
+            At this funcional mock a alert will be used to illustrate the exit application.
+        */
+        vm.closeApp = function() {
+            alert('Closing the application! A proper closing method will be used the in real application.');
+        };
+
+        vm.backToScreen = function(screenName) {
+            // Verifying is the screenName is valid
+            if (['situation', 'moment'].indexOf(screenName) === -1) {
+                console.log('Invalid screen name');
+                return;
+            } 
+
+            switch (screenName) {
+                case 'situation':
+                    $timeout.cancel(vm.currentScreenTimeout);
+                    vm.currentScreen = screenName;
+                    vm.currentSituation = null;
+                    break;
+                case 'moment':
+                    $timeout.cancel(vm.momentCardsAnimationTimeout);
+                    $timeout.cancel(vm.tipHasBeenLikedTimeout);
+                    vm.currentScreen = screenName;
+                    vm.currentMoment = null;
+                    vm.currentCardIndex = null;
+                    vm.continueCardAnimation = false;
+                    vm.tipHasBeenLiked = false;
+                    break;
+                default:
+                    break;
+            }
         };
     }
 })();

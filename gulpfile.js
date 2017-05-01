@@ -70,6 +70,27 @@ function concactVendorCSSTask() {
     .pipe(gulp.dest(path.public + path.dest.styles));
 }
 
+/* 
+    Browsers like Safari will display a console error if it can not find the map files.
+    Even though this application designed to run on mobile devices, it's better to ensure
+    that it will run without problems in any kind of render.
+*/
+function copyVendorJSMapTask() {
+    return gulp.src([
+        './bower_components/jquery/dist/jquery.min.js.map',
+        './bower_components/angular/angular.min.js.map',
+        './bower_components/angular-animate/angular-animate.min.js.map'
+        ])
+        .pipe(gulp.dest(path.public + path.dest.scripts));
+}
+
+function copyVendorCSSMapTask() {
+    return gulp.src([
+        './bower_components/bootstrap/dist/css/bootstrap.min.css.map'
+    ])
+    .pipe(gulp.dest(path.public + path.dest.styles));
+}
+
 function copyResourcesTask() {
     return gulp.src(path.resources)
         .pipe(gulp.dest(path.public + path.dest.resources))
@@ -109,8 +130,10 @@ function watchTask() {
 gulp.task('compilePugs', compilePugsTask);
 gulp.task('concatLocalJS', concatLocalJSTask);
 gulp.task('compileLess', compileLessTask);
-gulp.task('concatVendorJS', concatVendorJSTask);
-gulp.task('concactVendorCSS', concactVendorCSSTask);
+gulp.task('copyVendorJSMap', copyVendorJSMapTask);
+gulp.task('concatVendorJS', ['copyVendorJSMap'], concatVendorJSTask);
+gulp.task('copyVendorCSSMap', copyVendorCSSMapTask);
+gulp.task('concactVendorCSS', ['copyVendorCSSMap'], concactVendorCSSTask);
 gulp.task('copyResources', copyResourcesTask);
 gulp.task('inject', ['compilePugs', 'compileLess', 'concatLocalJS', 'concatVendorJS', 'concactVendorCSS', 'copyResources'], injectTask);
 gulp.task('webserver', ['inject'], webserverTask);
