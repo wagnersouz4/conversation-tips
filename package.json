@@ -32,5 +32,8 @@
     "gulp-rename": "~1.2.2",
     "gulp-webserver": "~0.9.1",
     "express": "~4.15.2"
+  },
+  "scripts": {
+    "postinstall": "bower install && gulp build"
   }
 }
