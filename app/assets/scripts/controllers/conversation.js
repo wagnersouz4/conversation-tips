@@ -93,7 +93,8 @@
             At this funcional mock a alert will be used to illustrate the exit application.
         */
         vm.closeApp = function() {
-            alert('Closing the application! A proper closing method will be used the in real application.');
+            /* globals alert */
+            alert('Closing the application! A proper closing method will be used in the real application.');
         };
 
         vm.backToScreen = function(screenName) {
