@@ -138,4 +138,4 @@ gulp.task('copyResources', copyResourcesTask);
 gulp.task('inject', ['compilePugs', 'compileLess', 'concatLocalJS', 'concatVendorJS', 'concactVendorCSS', 'copyResources'], injectTask);
 gulp.task('webserver', ['inject'], webserverTask);
 gulp.task('watch', ['inject'], watchTask);
-gulp.task('default', ['inject'], null);
+gulp.task('build', ['inject'], null);
